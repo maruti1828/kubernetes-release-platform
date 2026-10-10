@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Service Health Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 760px;
+      margin: 70px auto;
+      padding: 24px;
+      background: #f4f7fb;
+      color: #172033;
+    }
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px #17203312;
+    }
+    .status {
+      display: inline-block;
+      padding: 8px 12px;
+      background: #dcfce7;
+      color: #166534;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+    .muted { color: #64748b; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Service Health Dashboard</h1>
+    <p class="muted">Kubernetes Release Platform</p>
+    <p class="status">APPLICATION RUNNING</p>
+    <h2>Deployment information</h2>
+    <p>Application: service-health-dashboard</p>
+    <p>Environment: Local development</p>
+    <p>Release: v1</p>
+    <p class="muted">
+      Built for Docker, Kubernetes and GitHub Actions practice.
+    </p>
+  </main>
+</body>
+</html>

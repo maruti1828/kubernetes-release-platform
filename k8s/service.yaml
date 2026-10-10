@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-health-dashboard
+  namespace: release-platform
+spec:
+  type: ClusterIP
+  selector:
+    app: service-health-dashboard
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

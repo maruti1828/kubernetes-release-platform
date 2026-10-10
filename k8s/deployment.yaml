@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: dashboard
-          image: service-health-dashboard:v1
+          image: ghcr.io/maruti1828/kubernetes-release-platform:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http

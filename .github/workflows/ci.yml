@@ -40,6 +40,24 @@ jobs:
             -t "$IMAGE_NAME:latest" \
             .
 
+      - name: Test Docker image health
+        run: |
+          set -e
+          CONTAINER_ID=$(docker run -d -p 127.0.0.1:8080:80 "$IMAGE_NAME:$IMAGE_TAG")
+          trap 'docker rm -f "$CONTAINER_ID" >/dev/null 2>&1 || true' EXIT
+
+          for i in $(seq 1 15); do
+            if curl --fail --silent http://127.0.0.1:8080/health; then
+              echo "Health check passed"
+              exit 0
+            fi
+            sleep 2
+          done
+
+          echo "Health check failed"
+          docker logs "$CONTAINER_ID"
+          exit 1
+
       - name: Log in to GitHub Container Registry
         if: github.event_name == 'push'
         uses: docker/login-action@v3
